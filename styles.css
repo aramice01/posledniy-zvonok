@@ -1,0 +1,78 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+  color: #333;
+}
+
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.book-info {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.cover {
+  width: 150px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.info h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.author {
+  font-style: italic;
+  color: #666;
+}
+
+.chapters {
+  margin-top: 30px;
+}
+
+.chapters ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.chapters li {
+  margin: 10px 0;
+}
+
+.chapters a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.chapters a:hover {
+  text-decoration: underline;
+}
+
+.chapter-container {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.chapter-container a {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.chapter-container a:hover {
+  text-decoration: underline;
+}
