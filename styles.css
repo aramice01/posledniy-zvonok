@@ -1,0 +1,66 @@
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f6f6f6;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.book-header {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.cover-large {
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.book-details h1 {
+  margin-top: 0;
+  font-size: 28px;
+}
+
+.book-details p {
+  margin: 6px 0;
+  font-size: 16px;
+}
+
+.chapters h2 {
+  margin-bottom: 15px;
+  font-size: 22px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+}
+
+.chapters ul {
+  list-style: none;
+  padding: 0;
+}
+
+.chapters li {
+  margin: 10px 0;
+}
+
+.chapters a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #0066cc;
+}
+
+.chapters a:hover {
+  text-decoration: underline;
+}
