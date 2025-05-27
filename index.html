@@ -72,7 +72,6 @@
       color: #888;
       cursor: default;
       pointer-events: none;
-      position: relative;
       font-weight: normal;
     }
 
@@ -81,7 +80,7 @@
       position: absolute;
       right: 15px;
       bottom: 6px;
-      font-size: 13px;
+      font-size: 12px;
       color: #aaa;
       font-weight: normal;
     }
@@ -101,15 +100,14 @@
       <a href="chapter1.html" class="chapter-button">Глава 1 (+ Вступление)</a>
       <a href="chapter2.html" class="chapter-button">Глава 2</a>
       <a id="chapter3" href="#" class="chapter-button locked" data-unlock="Откроется 28.05.2025">Глава 3</a>
-      <a id="chapter4" href="#" class="chapter-button locked" data-unlock="Откроется 01.06.2025">Глава 4</a>
+      <a id="chapter4" href="#" class="chapter-button locked" data-unlock="Откроется 30.05.2025">Глава 4</a>
     </div>
   </div>
 
   <script>
-    const now = new Date();
-
-    const unlock = (id, dateStr, href) => {
-      const unlockDate = new Date(dateStr);
+    const unlockChapter = (id, date, href) => {
+      const now = new Date();
+      const unlockDate = new Date(date);
       const btn = document.getElementById(id);
       if (now >= unlockDate) {
         btn.classList.remove('locked');
@@ -118,12 +116,11 @@
         btn.style.cursor = 'pointer';
         btn.style.color = 'white';
         btn.style.backgroundColor = '#4a90e2';
-        btn.removeAttribute('aria-disabled');
       }
     };
 
-    unlock('chapter3', '2025-05-28T00:00:00', 'chapter3.html');
-    unlock('chapter4', '2025-06-01T00:00:00', 'chapter4.html');
+    unlockChapter('chapter3', '2025-05-28T00:00:00', 'chapter3.html');
+    unlockChapter('chapter4', '2025-05-30T00:00:00', 'chapter4.html');
   </script>
 </body>
 </html>
