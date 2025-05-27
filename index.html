@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Последний звонок</title>
   <style>
     body {
@@ -16,6 +16,7 @@
     .container {
       max-width: 900px;
       margin: 0 auto;
+      text-align: center;
     }
 
     .book-info {
@@ -23,18 +24,19 @@
       gap: 20px;
       align-items: flex-start;
       margin-bottom: 40px;
+      justify-content: center;
     }
 
     .book-info img {
-      width: 150px;
+      width: 180px;
       height: auto;
       border-radius: 8px;
-      object-fit: cover;
     }
 
     .book-text h2 {
       margin: 0;
       font-size: 28px;
+      line-height: 1.2;
     }
 
     .chapter-list {
@@ -42,47 +44,47 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 15px;
     }
 
     .chapter-button {
       display: block;
       width: 100%;
-      max-width: 300px;
-      padding: 14px 24px;
-      margin-bottom: 5px;
+      max-width: 600px;
+      padding: 12px 20px;
       background-color: #4a90e2;
       color: white;
       text-decoration: none;
       border-radius: 12px;
       font-weight: bold;
+      font-size: 18px;
+      position: relative;
       transition: background 0.3s;
-      text-align: center;
-      border: none;
       box-sizing: border-box;
-      cursor: pointer;
     }
 
     .chapter-button:hover {
       background-color: #3b78c5;
     }
 
-    /* Стиль для заблокированной кнопки */
+    /* Стиль для неактивной главы */
     .chapter-button.locked {
-      background-color: #d3d3d3;
-      color: #666;
+      background-color: #ddd;
+      color: #888;
       cursor: default;
-      pointer-events: none; /* запрет клика */
+      pointer-events: none;
+      position: relative;
+      font-weight: normal;
     }
 
-    .unlock-info {
-      max-width: 300px;
-      width: 100%;
-      color: #999;
-      font-size: 12px;
-      margin-bottom: 15px;
-      text-align: right;
-      font-style: italic;
-      user-select: none;
+    .chapter-button.locked::after {
+      content: "Откроется 28.05.2025";
+      position: absolute;
+      right: 15px;
+      bottom: 6px;
+      font-size: 14px;
+      color: #aaa;
+      font-weight: normal;
     }
   </style>
 </head>
@@ -99,25 +101,26 @@
     <div class="chapter-list">
       <a href="chapter1.html" class="chapter-button">Глава 1 (+ Вступление)</a>
       <a href="chapter2.html" class="chapter-button">Глава 2</a>
-
-      <a href="#" id="chapter3" class="chapter-button locked">Глава 3</a>
-      <div id="unlockInfo" class="unlock-info">Откроется 28.05.2025</div>
+      <a id="chapter3" href="#" class="chapter-button locked">Глава 3</a>
     </div>
   </div>
 
   <script>
+    // Скрипт для разблокировки 3-й главы с 28.05.2025 00:00
     const unlockDate = new Date('2025-05-28T00:00:00');
     const now = new Date();
-    const chapter3 = document.getElementById('chapter3');
-    const unlockInfo = document.getElementById('unlockInfo');
 
     if (now >= unlockDate) {
-      // Разблокировать кнопку и убрать надпись
+      const chapter3 = document.getElementById('chapter3');
       chapter3.classList.remove('locked');
-      chapter3.href = "chapter3.html";
-      chapter3.style.pointerEvents = "auto";
-      chapter3.style.cursor = "pointer";
-      unlockInfo.style.display = "none";
+      chapter3.href = 'chapter3.html';
+      chapter3.style.pointerEvents = 'auto';
+      chapter3.style.cursor = 'pointer';
+      chapter3.style.color = 'white';
+      chapter3.style.backgroundColor = '#4a90e2';
+      chapter3.removeAttribute('aria-disabled');
+      chapter3.style.position = 'relative';
+      chapter3.querySelector('::after');
     }
   </script>
 </body>
