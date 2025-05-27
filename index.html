@@ -26,9 +26,10 @@
     }
 
     .book-info img {
-      width: 200px;
+      width: 150px;
       height: auto;
       border-radius: 8px;
+      object-fit: cover;
     }
 
     .book-text h2 {
@@ -45,17 +46,19 @@
 
     .chapter-button {
       display: block;
-      width: 100%;
-      max-width: 400px;
+      width: auto;
+      max-width: 300px;
       padding: 14px 24px;
       margin-bottom: 15px;
       background-color: #4a90e2;
       color: white;
       text-decoration: none;
-      border-radius: 6px;
+      border-radius: 12px;
       font-weight: bold;
       transition: background 0.3s;
       text-align: center;
+      border: none;
+      box-sizing: border-box;
     }
 
     .chapter-button:hover {
@@ -66,7 +69,7 @@
 <body>
   <div class="container">
     <div class="book-info">
-      <img src="https://i.ibb.co/n8ws5Wc/IMG-20250526-173101.png" alt="Обложка" />
+      <img src="https://i.ibb.co/YFhJqYBV/cover.jpg" alt="Обложка" />
       <div class="book-text">
         <h2>Последний звонок</h2>
         <p>Автор: Арам Хондкарян</p>
