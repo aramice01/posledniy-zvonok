@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Последний звонок</title>
   <style>
     body {
@@ -46,10 +46,10 @@
 
     .chapter-button {
       display: block;
-      width: auto;
+      width: 100%;
       max-width: 300px;
       padding: 14px 24px;
-      margin-bottom: 15px;
+      margin-bottom: 5px;
       background-color: #4a90e2;
       color: white;
       text-decoration: none;
@@ -59,10 +59,30 @@
       text-align: center;
       border: none;
       box-sizing: border-box;
+      cursor: pointer;
     }
 
     .chapter-button:hover {
       background-color: #3b78c5;
+    }
+
+    /* Стиль для заблокированной кнопки */
+    .chapter-button.locked {
+      background-color: #d3d3d3;
+      color: #666;
+      cursor: default;
+      pointer-events: none; /* запрет клика */
+    }
+
+    .unlock-info {
+      max-width: 300px;
+      width: 100%;
+      color: #999;
+      font-size: 12px;
+      margin-bottom: 15px;
+      text-align: right;
+      font-style: italic;
+      user-select: none;
     }
   </style>
 </head>
@@ -79,7 +99,26 @@
     <div class="chapter-list">
       <a href="chapter1.html" class="chapter-button">Глава 1 (+ Вступление)</a>
       <a href="chapter2.html" class="chapter-button">Глава 2</a>
+
+      <a href="#" id="chapter3" class="chapter-button locked">Глава 3</a>
+      <div id="unlockInfo" class="unlock-info">Откроется 28.05.2025</div>
     </div>
   </div>
+
+  <script>
+    const unlockDate = new Date('2025-05-28T00:00:00');
+    const now = new Date();
+    const chapter3 = document.getElementById('chapter3');
+    const unlockInfo = document.getElementById('unlockInfo');
+
+    if (now >= unlockDate) {
+      // Разблокировать кнопку и убрать надпись
+      chapter3.classList.remove('locked');
+      chapter3.href = "chapter3.html";
+      chapter3.style.pointerEvents = "auto";
+      chapter3.style.cursor = "pointer";
+      unlockInfo.style.display = "none";
+    }
+  </script>
 </body>
 </html>
